@@ -1,0 +1,6 @@
+{
+  "mongoURI": "mongodb+srv://zehra123:zehra123@devconnector-9sb7n.mongodb.net/test?retryWrites=true&w=majority",
+  "jwtSecret": "secret",
+  "githubClientId": "87ca1b20bc5094547b64",
+  "githubSecret": "4941eac4822478dfec47e4d8773254dc15eada1d"
+}
