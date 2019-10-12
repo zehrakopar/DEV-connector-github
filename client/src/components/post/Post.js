@@ -7,6 +7,7 @@ import PostItem from '../posts/PostItem';
 import CommentForm from '../post/CommentForm';
 import CommentItem from '../post/CommentItem';
 import { getPost } from '../../actions/post';
+import EditPostForm from '../post/EditPostForm';
 
 const Post = ({ getPost, post: { post, loading }, match }) => {
   useEffect(() => {
@@ -21,6 +22,7 @@ const Post = ({ getPost, post: { post, loading }, match }) => {
         Back To Posts
       </Link>
       <PostItem post={post} showActions={false} />
+      <EditPostForm postId={post._id} />
       <CommentForm postId={post._id} />
       <div className='comments'>
         {post.comments.map(comment => (

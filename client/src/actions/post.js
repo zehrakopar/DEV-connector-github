@@ -5,6 +5,7 @@ import {
   POST_ERROR,
   UPDATE_LIKES,
   DELETE_POST,
+  EDIT_POST,
   ADD_POST,
   GET_POST,
   ADD_COMMENT,
@@ -27,6 +28,31 @@ export const getPosts = () => async dispatch => {
     });
   }
 };
+
+// Edit post
+export const editPost = (postId, formData) => async dispatch => {
+  try {
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    };
+    const res = await axios.put(`/api/posts/${postId}`, formData, config);
+
+    dispatch({
+      type: EDIT_POST,
+      payload: res.data
+    });
+
+    dispatch(setAlert('Post Edited', 'success'));
+  } catch (err) {
+    dispatch({
+      type: POST_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status }
+    });
+  }
+};
+ 
 
 // Add like
 export const addLike = id => async dispatch => {
